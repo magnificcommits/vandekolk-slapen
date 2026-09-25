@@ -26,7 +26,7 @@ export default async function Page({ params }: PageProps<"/waar-zoekt-u-naar/[sl
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section className="!pb-10">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">

@@ -32,7 +32,7 @@ export default async function Page({ params }: PageProps<"/assortiment/[slug]">)
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section className="!pb-6">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">

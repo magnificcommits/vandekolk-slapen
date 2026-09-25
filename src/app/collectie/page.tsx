@@ -20,7 +20,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section className="!pb-8">
           <div className="max-w-3xl">
             <Eyebrow>Collectie</Eyebrow>
@@ -59,6 +59,24 @@ export default function Page() {
         ))}
 
         <Section tone="linen">
+          <Eyebrow>Hoe kiest u</Eyebrow>
+          <Heading className="mt-4">Vier vragen die het merk bepalen.</Heading>
+          <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["Heeft u het warm?", "Dan natuurlijke vulling: Vispring of Greensleep. Geen schuim."],
+              ["Rug of schouders?", "Dan zonering: Duxiana, Jensen of een Equilli op maat na de Sleep Scan."],
+              ["Zacht of veerkrachtig?", "Zacht en omhullend is Jensen. Veerkrachtig en licht is Vispring. Degelijk is Avek of Pullman."],
+              ["Hoe lang moet het mee?", "Tien tot vijftien jaar: Avek, Pullman, Jensen. Twintig jaar en meer: Vispring, Duxiana, Greensleep."],
+            ].map(([q, a]) => (
+              <div key={q} className="border-t border-line pt-5">
+                <h3 className="font-serif text-xl">{q}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{a}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-ink-soft">Twijfelt u? Doe de <Link href="/configurator" className="underline underline-offset-4">vijf vragen</Link>, of kom langs: na de Sleep Scan weten we het binnen een uur.</p>
+        </Section>
+        <Section>
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <Eyebrow>Beddengoed</Eyebrow>
@@ -67,7 +85,7 @@ export default function Page() {
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
               {textileBrands.map((t) => (
-                <div key={t.slug} className="bg-paper p-7">
+                <div key={t.slug} className="bg-linen p-7">
                   <h3 className="font-serif text-2xl">{t.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink-soft">{t.short}</p>
                 </div>

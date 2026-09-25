@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <section className="mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16">
           <div className="max-w-2xl">
             <Eyebrow>Stel uw bed samen</Eyebrow>

@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section className="!pb-8">
           <div className="max-w-3xl">
             <Eyebrow>Waar zoekt u naar?</Eyebrow>

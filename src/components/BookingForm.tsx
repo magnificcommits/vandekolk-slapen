@@ -19,8 +19,8 @@ function toISO(d: Date) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-export default function BookingForm({ preset, note }: { preset?: string; note?: string }) {
-  const [type, setType] = useState<Type>("showroom");
+export default function BookingForm({ preset, note, initialType }: { preset?: string; note?: string; initialType?: Type }) {
+  const [type, setType] = useState<Type>(initialType ?? "showroom");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [persons, setPersons] = useState(2);

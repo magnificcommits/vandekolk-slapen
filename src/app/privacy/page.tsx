@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section>
           <div className="prose-lg max-w-2xl text-ink-soft">
             <Heading as="h1" className="!text-ink mb-8">Privacy</Heading>

@@ -5,15 +5,18 @@ import type { Route } from "next";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 
-const nav: { href: Route; label: string }[] = [
+const main: { href: Route; label: string }[] = [
   { href: "/collectie", label: "Bedden" },
   { href: "/assortiment", label: "Matrassen & meer" },
   { href: "/configurator", label: "Welk bed past bij u?" },
-  { href: "/slaapadvies", label: "Slaapadvies" },
-  { href: "/showroomcollectie", label: "Showroom" },
+  { href: "/slaapadvies", label: "Zo werken wij" },
+  { href: "/over-ons", label: "Ons verhaal" },
+];
+
+const top: { href: Route; label: string }[] = [
+  { href: "/showroomcollectie", label: "Showroomcollectie" },
   { href: "/kennis", label: "Kennis" },
-  { href: "/over-ons", label: "Verhaal" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Contact & route" },
 ];
 
 export default function Header({ dark = false }: { dark?: boolean }) {
@@ -36,6 +39,21 @@ export default function Header({ dark = false }: { dark?: boolean }) {
           onDark ? "bg-transparent text-white" : "bg-paper/95 backdrop-blur text-ink border-b border-line"
         }`}
       >
+        {/* Servicebalk */}
+        <div className={`hidden lg:block ${onDark ? "border-b border-white/15" : "border-b border-line bg-linen"}`}>
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-1.5 text-[0.7rem] tracking-[0.08em]">
+            <p className={onDark ? "text-white/70" : "text-stone"}>Markt 20, Lochem · di t/m vr 10:00–17:30 · za 10:00–16:00 · avond op afspraak</p>
+            <div className="flex items-center gap-5">
+              {top.map((n) => (
+                <Link key={n.href} href={n.href} className={`uppercase transition ${onDark ? "text-white/70 hover:text-white" : "text-stone hover:text-ink"}`}>
+                  {n.label}
+                </Link>
+              ))}
+              <a href={site.phoneHref} className={`font-medium ${onDark ? "text-white" : "text-ink"}`}>{site.phone}</a>
+            </div>
+          </div>
+        </div>
+
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <Link href="/" className="font-serif text-xl leading-none tracking-tight lg:text-2xl">
             van de kolk
@@ -44,8 +62,8 @@ export default function Header({ dark = false }: { dark?: boolean }) {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 whitespace-nowrap text-[0.74rem] tracking-[0.1em] uppercase lg:flex">
-            {nav.map((n) => (
+          <nav className="hidden items-center gap-7 whitespace-nowrap text-[0.76rem] tracking-[0.1em] uppercase lg:flex">
+            {main.map((n) => (
               <Link key={n.href} href={n.href} className="opacity-85 transition hover:opacity-100">
                 {n.label}
               </Link>
@@ -53,9 +71,6 @@ export default function Header({ dark = false }: { dark?: boolean }) {
           </nav>
 
           <div className="flex items-center gap-3">
-            <a href={site.phoneHref} className={`hidden whitespace-nowrap text-sm 2xl:block ${onDark ? "text-white/80" : "text-stone"}`}>
-              {site.phone}
-            </a>
             <Link href="/afspraak" className={`btn hidden md:inline-flex ${onDark ? "btn-light" : "btn-primary"} !py-2.5 !px-5 whitespace-nowrap`}>
               Plan een afspraak
             </Link>
@@ -73,8 +88,13 @@ export default function Header({ dark = false }: { dark?: boolean }) {
         {open && (
           <div className="border-t border-line bg-paper px-6 pb-8 pt-4 text-ink lg:hidden">
             <nav className="flex flex-col gap-4 text-base">
-              {nav.map((n) => (
+              {main.map((n) => (
                 <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="border-b border-line pb-3">
+                  {n.label}
+                </Link>
+              ))}
+              {top.map((n) => (
+                <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-sm text-stone">
                   {n.label}
                 </Link>
               ))}

@@ -39,7 +39,7 @@ export default async function Page({ params }: PageProps<"/kennis/[slug]">) {
     <>
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section className="!pb-6">
           <div className="max-w-3xl">
             <Eyebrow><Link href="/kennis">Kennis</Link> · {fmt} · {a.readMinutes} min lezen</Eyebrow>

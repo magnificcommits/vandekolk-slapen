@@ -25,7 +25,7 @@ export default async function Page({ params }: PageProps<"/vergelijk/[slug]">) {
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section className="!pb-2">
           <div className="max-w-3xl">
             <Eyebrow>Eerlijk vergeleken</Eyebrow>

@@ -19,14 +19,14 @@ export default function Page() {
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section>
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-6">
               <Eyebrow>Ons verhaal</Eyebrow>
               <Heading as="h1" className="mt-4">Klanten zijn bij ons geen nummer. Dat is geen slogan, dat is hoe we de zaak runnen.</Heading>
               <div className="prose-lg mt-8 text-ink-soft">
-                <p>Martin van de Kolk staat als derde generatie aan het roer. Hij brengt ieder bed zelf, of het nu om de hoek is of in Zwitserland. Karin Florijn doet de administratie, de social media en de inrichting van de winkel. Robert is bedrijfsleider en adviseur, met jarenlange ervaring in de beddenbranche. Hij kent elk bed in de zaak van binnen en van buiten.</p>
+                <p>Martin van de Kolk staat als derde generatie aan het roer. Hij brengt ieder bed zelf, of het nu om de hoek is of in Zwitserland. Karin Florijn doet de administratie, de social media en de inrichting van de winkel. Robert van Haaften is bedrijfsleider en adviseur, met jarenlange ervaring in de beddenbranche. Hij kent elk bed in de zaak van binnen en van buiten.</p>
                 <p>“Wij zijn adviseurs, geen verkopers,” zegt Robert. “Een kwart van je leven breng je door in bed. Daar mag je best een uur voor uittrekken.” Martin vult aan: “We hebben alles in eigen beheer, van het eerste gesprek tot het instellen van het bed in uw slaapkamer. Zo weten we zeker dat wat we beloven, ook gebeurt.”</p>
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function Page() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               ["Martin van de Kolk", "Eigenaar, derde generatie", "Kwam op zijn 23e in de zaak van zijn vader. Brengt ieder bed zelf, stelt het in en komt terug als er iets moet worden aangepast."],
-              ["Robert", "Bedrijfsleider en adviseur", "Jarenlange ervaring in de beddenbranche. Doet de Sleep Scan, kent ieder merk en zegt eerlijk welk bed niet bij u past."],
+              ["Robert van Haaften", "Bedrijfsleider en adviseur", "Jarenlange ervaring in de beddenbranche. Doet de Sleep Scan, kent ieder merk en zegt eerlijk welk bed niet bij u past."],
               ["Karin Florijn", "Administratie, social media en inrichting", "Zorgt achter de schermen dat alles klopt: de planning, de facturen en hoe de winkel eruitziet."],
             ].map(([n, r, t]) => (
               <div key={n} className="bg-paper p-6">

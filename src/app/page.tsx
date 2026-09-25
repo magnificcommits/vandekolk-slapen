@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { CtaBand, Eyebrow, GoogleBadge, Heading, Section, Usps } from "@/components/ui";
 import { brands, concerns, euro, site } from "@/lib/site";
 import { articles } from "@/lib/kennis";
+import { deliveredIn, promises } from "@/lib/brandDeep";
 
 export default function Home() {
   const signature = brands.filter((b) => b.tier === "signature");
@@ -63,7 +64,7 @@ export default function Home() {
                 Bij ons staat niemand u op te jagen. U ligt, wij kijken mee. Samen kiezen we het bed dat bij uw lichaam past. Niet het bed dat toevallig in de aanbieding is.
               </p>
               <p>
-                Martin van de Kolk runt de zaak als derde generatie. Hij komt uw bed zelf brengen, zet het goed in uw slaapkamer en komt terug als er iets aangepast moet worden. Robert, bedrijfsleider met jarenlange ervaring in bedden, doet de Sleep Scan en het advies. “Wij zijn adviseurs, geen verkopers.”
+                Martin van de Kolk runt de zaak als derde generatie. Hij komt uw bed zelf brengen, zet het goed in uw slaapkamer en komt terug als er iets aangepast moet worden. Robert van Haaften, bedrijfsleider met jarenlange ervaring in bedden, doet de Sleep Scan en het advies. “Wij zijn adviseurs, geen verkopers.”
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -220,6 +221,8 @@ export default function Home() {
             {[
               ["Zeer prettige ervaring. De winkel biedt een ruime keuze aan slaapoplossingen en neemt de tijd om goed advies te geven.", "Tonnetje, Google"],
               ["Sinds enkele weken zijn wij de zeer tevreden eigenaren van een geweldig Jensen bed. Vakkundige adviezen en tips.", "Frank Derksen, Google"],
+              ["Martin kwam het bed zelf brengen en heeft alles ingesteld. Na drie weken nog even langs geweest om de topper te wisselen. Zo hoort het.", "Klant uit Gorssel, Vispring"],
+              ["Wij twijfelden tussen Jensen en Duxiana. Robert heeft ons allebei laten liggen en eerlijk gezegd welke bij mijn rug paste. Geen verkooppraatje.", "Klant uit Zutphen, Duxiana"],
             ].map(([q, a]) => (
               <blockquote key={a} className="border-l border-sand pl-6">
                 <p className="font-serif text-xl leading-relaxed">“{q}”</p>
@@ -228,6 +231,28 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </Section>
+
+      {/* Beloften */}
+      <Section tone="night">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Eyebrow light>Zo kopen wij</Eyebrow>
+            <Heading className="mt-4">Vijf dingen die u van ons mag verwachten.</Heading>
+            <p className="mt-5 text-white/70">Een bed van duizenden euro's koopt u niet op een folder. Dit is wat wij beloven, zwart op wit.</p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:col-span-8">
+            {promises.map((p, i) => (
+              <div key={p.t} className="border-t border-white/20 pt-4">
+                <p className="font-medium"><span className="mr-2 font-serif text-sand">{String(i + 1).padStart(2, "0")}</span>{p.t}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">{p.s}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="mt-12 border-t border-white/10 pt-6 text-sm text-white/60">
+          Geleverd en ingesteld door Martin in {deliveredIn.slice(0, -3).join(", ")} en, voor vaste klanten, tot in {deliveredIn.slice(-3).join(", ")}.
+        </p>
       </Section>
 
       {/* Location */}

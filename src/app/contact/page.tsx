@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <>
       <Header />
-      <div className="pt-24 lg:pt-28">
+      <div className="pt-24 lg:pt-32">
         <Section>
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -49,9 +49,9 @@ export default function Page() {
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
               <div className="relative aspect-[4/5] overflow-hidden lg:sticky lg:top-28">
-                <Image src="/images/j73a4991-25901.1920x0.jpg" alt="Martin en Robert van Van de Kolk Slapen" fill className="object-cover" sizes="(min-width:1024px) 45vw, 100vw" />
+                <Image src="/images/j73a4991-25901.1920x0.jpg" alt="Martin van de Kolk en Robert van Haaften" fill className="object-cover" sizes="(min-width:1024px) 45vw, 100vw" />
               </div>
-              <p className="mt-4 text-sm text-stone">Martin van de Kolk en Robert. U treft één van hen altijd in de zaak.</p>
+              <p className="mt-4 text-sm text-stone">Martin van de Kolk en Robert van Haaften. U treft één van hen altijd in de zaak.</p>
             </div>
           </div>
         </Section>
