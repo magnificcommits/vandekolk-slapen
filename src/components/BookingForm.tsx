@@ -7,9 +7,9 @@ import { brands, site } from "@/lib/site";
 type Type = "showroom" | "thuis" | "telefonisch";
 
 const typeOptions: { value: Type; title: string; text: string }[] = [
-  { value: "showroom", title: "In de showroom", text: "Markt 20, Lochem. Sleep Scan, proefliggen, koffie. Reken op een uur." },
-  { value: "thuis", title: "Advies aan huis", text: "Wij komen kijken naar uw slaapkamer, maten en huidige bed. Binnen 45 km." },
-  { value: "telefonisch", title: "Eerst even bellen", text: "Vijftien minuten om te bepalen of een bezoek zinvol is." },
+  { value: "showroom", title: "In de showroom", text: "Markt 20, Lochem. Sleep Scan, proefliggen, koffie. Reken op ongeveer een uur." },
+  { value: "thuis", title: "Advies aan huis", text: "Wij komen bij u thuis kijken naar de slaapkamer, de maten en uw huidige bed. Binnen 45 km van Lochem." },
+  { value: "telefonisch", title: "Eerst even bellen", text: "Een kort gesprek van een kwartier. Daarna weet u of een bezoek zinvol is." },
 ];
 
 const dayNames = ["zo", "ma", "di", "wo", "do", "vr", "za"];
@@ -74,7 +74,7 @@ export default function BookingForm({ preset }: { preset?: string }) {
         <p className="eyebrow">Aanvraag ontvangen</p>
         <h3 className="mt-3 font-serif text-3xl">Dank u, {form.name.split(" ")[0]}.</h3>
         <p className="mt-4 max-w-lg leading-relaxed text-ink-soft">
-          U krijgt binnen één werkdag een persoonlijke bevestiging van Martin of Robert, per e-mail of telefoon. Neem gerust uw partner mee; een bed kies je samen.
+          Martin of Robert bevestigt uw afspraak binnen één werkdag, per e-mail of telefoon. Neem gerust uw partner mee. Een bed kies je samen.
         </p>
         <p className="mt-4 text-sm text-stone">{site.address.navigation}</p>
       </div>
@@ -213,7 +213,7 @@ export default function BookingForm({ preset }: { preset?: string }) {
 
       <div className="flex flex-col gap-4 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
         <p className="max-w-md text-sm text-stone">
-          Geen verplichtingen. U krijgt binnen één werkdag een persoonlijke bevestiging. Wij delen uw gegevens met niemand.
+          U zit nergens aan vast. U krijgt binnen één werkdag een bevestiging. Uw gegevens delen wij met niemand.
         </p>
         <button type="submit" disabled={state === "busy"} className="btn btn-primary disabled:opacity-60">
           {state === "busy" ? "Versturen…" : "Afspraak aanvragen"}

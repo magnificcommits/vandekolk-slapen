@@ -15,7 +15,7 @@ export function Section({
   const bg = tone === "linen" ? "bg-linen" : tone === "night" ? "bg-night text-white" : "bg-paper";
   return (
     <section id={id} className={`${bg} ${className}`}>
-      <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">{children}</div>
+      <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">{children}</div>
     </section>
   );
 }
@@ -49,7 +49,7 @@ export function GoogleBadge({ light = false }: { light?: boolean }) {
   );
 }
 
-export function CtaBand({ title = "Kom proefliggen, in alle rust.", text = "Plan een privé-afspraak in de showroom of vraag advies aan huis. Ook 's avonds mogelijk." }: { title?: string; text?: string }) {
+export function CtaBand({ title = "Kom rustig proefliggen.", text = "Plan een afspraak in de showroom of vraag advies aan huis. Kan ook 's avonds." }: { title?: string; text?: string }) {
   return (
     <Section tone="night">
       <div className="grid items-center gap-10 lg:grid-cols-12">
@@ -71,8 +71,8 @@ export function Usps({ light = false }: { light?: boolean }) {
   const items = [
     ["Sinds 1932", "Familiebedrijf, derde generatie"],
     ["Eigenaar levert zelf", "Martin is bij iedere bezorging"],
-    ["Alleen hier in de regio", "Vispring, Duxiana en Jensen naast elkaar"],
-    ["Sleep Scan", "Exclusieve Equilli-partner"],
+    ["Uniek in de regio", "Vispring, Duxiana en Jensen naast elkaar"],
+    ["Sleep Scan", "Eerst meten, dan kiezen"],
   ];
   return (
     <ul className={`grid grid-cols-2 gap-6 lg:grid-cols-4 ${light ? "text-white" : "text-ink"}`}>

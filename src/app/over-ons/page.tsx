@@ -30,7 +30,7 @@ export default function Page() {
                 <p>We hebben alles in eigen beheer, van het eerste gesprek tot de afstelling in uw slaapkamer. Zo weten we zeker dat wat we beloven, ook gebeurt.</p>
               </div>
             </div>
-            <div className="relative aspect-[4/5] overflow-hidden lg:col-span-5 lg:col-start-8">
+            <div className="relative aspect-[4/5] overflow-hidden lg:col-span-5 lg:col-start-8 lg:aspect-[3/4]">
               <Image src="/images/j73a4991-25901.1920x0.jpg" alt="Martin en Robert" fill className="object-cover" sizes="(min-width:1024px) 40vw, 100vw" />
             </div>
           </div>

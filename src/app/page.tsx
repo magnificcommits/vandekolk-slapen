@@ -13,7 +13,7 @@ export default function Home() {
       <Header dark />
 
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] items-end bg-night text-white">
+      <section className="relative flex min-h-[80vh] items-end bg-night text-white">
         <Image
           src="/images/vispring.jpg"
           alt="Showroom van Van de Kolk Slapen in Lochem"
@@ -23,13 +23,13 @@ export default function Home() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-night/30" />
-        <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-40 lg:px-8 lg:pb-24">
+        <div className="relative mx-auto w-full max-w-7xl px-5 pb-14 pt-36 lg:px-8 lg:pb-16">
           <p className="eyebrow fade-up !text-sand">Slaapboutique · Markt 20, Lochem</p>
           <h1 className="fade-up-2 mt-5 max-w-3xl font-serif text-4xl leading-[1.08] md:text-6xl lg:text-7xl">
-            Het beste bed van Oost-Nederland ligt aan de Markt in Lochem.
+            Het bed dat bij u past, vindt u aan de Markt in Lochem.
           </h1>
           <p className="fade-up-3 mt-6 max-w-xl text-lg text-white/80">
-            Vispring, Duxiana en Jensen, naast elkaar, in alle rust te proefliggen. Familiebedrijf sinds 1932. De eigenaar levert zelf.
+            Vispring, Duxiana en Jensen staan bij ons naast elkaar. U ligt rustig proef, zonder haast. Familiebedrijf sinds 1932. Martin levert uw bed zelf.
           </p>
           <div className="fade-up-3 mt-9 flex flex-col gap-3 sm:flex-row">
             <Link href="/afspraak" className="btn btn-sand">Plan een privé-afspraak</Link>
@@ -43,7 +43,7 @@ export default function Home() {
 
       {/* USP */}
       <div className="border-b border-line bg-paper">
-        <div className="mx-auto max-w-7xl px-5 py-10 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-8 lg:px-8">
           <Usps />
         </div>
       </div>
@@ -54,15 +54,15 @@ export default function Home() {
           <div className="relative aspect-[4/5] overflow-hidden lg:col-span-5">
             <Image src="/images/j73a4991-25901.1920x0.jpg" alt="Martin en Robert in de winkel" fill className="object-cover" sizes="(min-width:1024px) 40vw, 100vw" />
           </div>
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div className="lg:col-span-7">
             <Eyebrow>Sinds 1932</Eyebrow>
-            <Heading className="mt-4">Een bed koopt u eens in de twintig jaar. Neem er een uur voor.</Heading>
+            <Heading className="mt-4">Een bed koopt u eens in de twintig jaar. Neem er rustig een uur voor.</Heading>
             <div className="prose-lg mt-7 text-ink-soft">
               <p>
-                Bij ons staat geen verkoper met een stopwatch. U ligt, wij kijken, en samen komen we uit bij het bed dat bij uw lichaam past. Niet bij het bed dat toevallig in de aanbieding is.
+                Bij ons staat niemand u op te jagen. U ligt, wij kijken mee. Samen kiezen we het bed dat bij uw lichaam past. Niet het bed dat toevallig in de aanbieding is.
               </p>
               <p>
-                Martin van de Kolk leidt de zaak in de derde generatie. Hij is bij iedere levering zelf aanwezig, stelt het bed af in uw slaapkamer en komt terug als er iets bijgesteld moet worden. Zo werkten zijn vader en opa ook.
+                Martin van de Kolk runt de zaak als derde generatie. Hij komt uw bed zelf brengen, zet het goed in uw slaapkamer en komt terug als er iets aangepast moet worden. Zo deden zijn vader en opa het ook.
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -78,11 +78,11 @@ export default function Home() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <Eyebrow>De signature-collectie</Eyebrow>
-            <Heading className="mt-4">Drie merken die u in deze regio nergens anders naast elkaar vindt.</Heading>
+            <Heading className="mt-4">Drie topmerken die u in deze regio nergens anders naast elkaar vindt.</Heading>
           </div>
           <Link href="/collectie" className="text-sm tracking-[0.12em] uppercase underline underline-offset-4">Alle merken</Link>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[...signature, brands.find((b) => b.slug === "jensen")!].map((b) => (
             <Link key={b.slug} href={`/collectie/${b.slug}`} className="group block bg-paper">
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -113,18 +113,18 @@ export default function Home() {
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <Eyebrow>Slaapadvies op afspraak</Eyebrow>
-            <Heading className="mt-4">Eerst meten, dan pas kiezen.</Heading>
+            <Heading className="mt-4">Eerst meten, dan kiezen.</Heading>
             <div className="prose-lg mt-7 text-ink-soft">
               <p>
-                Wij zijn de exclusieve Equilli-partner voor Lochem en omstreken. De Personal Sleep Scan meet in tien minuten hoe uw lichaam drukt en waar het steun nodig heeft. Daarna weten we welke bedden voor u in aanmerking komen, en welke niet.
+                Wij zijn in de regio Lochem de enige met de Sleep Scan van Equilli. In tien minuten meet die waar uw lichaam druk geeft en waar het steun nodig heeft. Daarna weten we precies welke bedden bij u passen. En welke niet.
               </p>
             </div>
             <ol className="mt-8 space-y-5">
               {[
-                ["U plant een afspraak", "Overdag, 's avonds of op maandag. Alleen u, of samen met uw partner."],
-                ["Sleep Scan en gesprek", "Slaaphouding, klachten, warmte, de bewegingen van uw partner. Tien minuten meten, tien minuten luisteren."],
-                ["Proefliggen zonder haast", "Drie tot vier bedden die bij u passen. U ligt zo lang als u wilt."],
-                ["Levering door Martin", "Hij zet het bed af in uw slaapkamer, stelt het af en komt terug als iets moet worden bijgesteld."],
+                ["U plant een afspraak", "Overdag, 's avonds of op maandag. Alleen, of samen met uw partner."],
+                ["Sleep Scan en gesprek", "Hoe u slaapt, waar u last van heeft, of u het warm heeft, of uw partner veel beweegt. Tien minuten meten, tien minuten praten."],
+                ["Proefliggen zonder haast", "We kiezen drie of vier bedden die bij u passen. U ligt zo lang als u wilt."],
+                ["Levering door Martin", "Hij zet het bed in uw slaapkamer, stelt het goed in en komt terug als er iets aangepast moet worden."],
               ].map(([t, s], i) => (
                 <li key={t} className="flex gap-5">
                   <span className="font-serif text-2xl text-sand">{String(i + 1).padStart(2, "0")}</span>
@@ -151,8 +151,8 @@ export default function Home() {
       {/* Concerns */}
       <Section tone="linen">
         <Eyebrow>Waar zoekt u naar?</Eyebrow>
-        <Heading className="mt-4 max-w-2xl">Begin bij uw nacht, niet bij een merk.</Heading>
-        <div className="mt-12 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-5">
+        <Heading className="mt-4 max-w-2xl">Waar heeft u last van? Begin daar.</Heading>
+        <div className="mt-10 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-5">
           {concerns.map((c) => (
             <Link key={c.slug} href={`/waar-zoekt-u-naar/${c.slug}`} className="group bg-linen p-7 transition hover:bg-paper">
               <h3 className="font-serif text-xl">{c.title}</h3>
@@ -168,7 +168,7 @@ export default function Home() {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Eyebrow>Klanten</Eyebrow>
-            <Heading className="mt-4">Wat men zegt.</Heading>
+            <Heading className="mt-4">Wat klanten zeggen.</Heading>
             <div className="mt-6"><GoogleBadge /></div>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:col-span-8">
@@ -195,7 +195,7 @@ export default function Home() {
             <Eyebrow>Nieuw sinds zomer 2026</Eyebrow>
             <Heading className="mt-4">Aan de Markt, in het hart van Lochem.</Heading>
             <p className="mt-6 text-ink-soft leading-relaxed">
-              Na ruim negentig jaar aan de Nieuwstad zijn we verhuisd naar Markt 20. Vier grote etalages, een koffiehoek, een rustige studio achterin en parkeren direct achter de winkel.
+              Na ruim negentig jaar aan de Nieuwstad zitten we nu op Markt 20. Grote etalages, een koffiehoek, een rustige ruimte achterin voor de Sleep Scan. Parkeren kan direct achter de winkel.
             </p>
             <address className="mt-6 not-italic text-sm leading-relaxed text-ink-soft">
               {site.address.street}, {site.address.zip} {site.address.city}<br />

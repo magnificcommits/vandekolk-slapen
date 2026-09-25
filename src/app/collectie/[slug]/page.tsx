@@ -52,16 +52,16 @@ export default async function Page({ params }: PageProps<"/collectie/[slug]">) {
               ))}
             </ul>
           </div>
-          <aside className="lg:col-span-4 lg:col-start-9">
+          <aside className="lg:col-span-4 lg:col-start-9 lg:sticky lg:top-28 lg:self-start">
             <div className="bg-linen p-8">
               <p className="eyebrow">Indicatie</p>
               <p className="mt-3 font-serif text-4xl">{euro(b.from)}</p>
               <p className="mt-1 text-sm text-stone">{b.fromNote ?? "compleet tweepersoonsbed 180 x 200"}, vanaf</p>
               <p className="mt-5 text-sm leading-relaxed text-ink-soft">
-                De exacte prijs hangt af van maat, stevigheid, stof en hoofdbord. Na een afspraak krijgt u een offerte op maat, zonder verrassingen.
+                De precieze prijs hangt af van maat, stevigheid, stof en hoofdbord. Na uw afspraak krijgt u een duidelijke offerte, zonder verrassingen.
               </p>
               <Link href={`/afspraak?merk=${encodeURIComponent(b.name)}`} className="btn btn-primary mt-6 w-full">Proefliggen op afspraak</Link>
-              <p className="mt-4 text-center text-xs text-stone">Sleep Scan inbegrepen · geen verplichtingen</p>
+              <p className="mt-4 text-center text-xs text-stone">Sleep Scan inbegrepen · u zit nergens aan vast</p>
             </div>
           </aside>
         </div>
@@ -70,7 +70,7 @@ export default async function Page({ params }: PageProps<"/collectie/[slug]">) {
       {others.length > 0 && (
         <Section tone="linen">
           <Eyebrow>Vergelijk</Eyebrow>
-          <Heading className="mt-4">Ook in deze klasse</Heading>
+          <Heading className="mt-4">Ook in deze prijsklasse</Heading>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {others.map((o) => (
               <Link key={o.slug} href={`/collectie/${o.slug}`} className="group bg-paper">
@@ -88,7 +88,7 @@ export default async function Page({ params }: PageProps<"/collectie/[slug]">) {
         </Section>
       )}
 
-      <CtaBand title={`${b.name} ligt bij ons klaar. Kom het voelen.`} />
+      <CtaBand title={`${b.name} staat bij ons klaar. Kom het voelen.`} />
     </>
   );
 }
