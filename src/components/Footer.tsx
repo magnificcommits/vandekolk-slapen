@@ -31,11 +31,14 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <p className="eyebrow !text-white/50">Winkel</p>
             <ul className="mt-4 space-y-2 text-sm text-white/80">
+              <li><Link href="/configurator" className="hover:text-white">Stel uw bed samen</Link></li>
+              <li><Link href="/assortiment" className="hover:text-white">Matrassen, toppers, kussens</Link></li>
               <li><Link href="/slaapadvies" className="hover:text-white">Slaapadvies</Link></li>
               <li><Link href="/afspraak" className="hover:text-white">Afspraak plannen</Link></li>
               <li><Link href="/waar-zoekt-u-naar" className="hover:text-white">Waar zoekt u naar?</Link></li>
               <li><Link href="/showroomcollectie" className="hover:text-white">Showroomcollectie</Link></li>
               <li><Link href="/over-ons" className="hover:text-white">Ons verhaal</Link></li>
+              <li><Link href="/vergelijk/vispring-duxiana-hastens" className="hover:text-white">Vispring, Duxiana of Hästens?</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact en route</Link></li>
             </ul>
           </div>
@@ -60,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Van de Kolk Slapen · Lochem</p>
+          <p>© {new Date().getFullYear()} Van de Kolk Slapen · Lochem · voor <Link href="/regio/zutphen" className="hover:text-white">Zutphen</Link>, <Link href="/regio/deventer" className="hover:text-white">Deventer</Link>, <Link href="/regio/apeldoorn" className="hover:text-white">Apeldoorn</Link>, <Link href="/regio/twente" className="hover:text-white">Twente</Link> en <Link href="/regio/achterhoek" className="hover:text-white">de Achterhoek</Link></p>
           <div className="flex gap-5">
             <a href={site.social.instagram} target="_blank" rel="noreferrer" className="hover:text-white">Instagram</a>
             <a href={site.social.facebook} target="_blank" rel="noreferrer" className="hover:text-white">Facebook</a>

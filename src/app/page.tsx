@@ -108,6 +108,30 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Configurator + assortiment */}
+      <Section>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Link href="/configurator" className="group relative flex min-h-[20rem] items-end overflow-hidden bg-night p-8 text-white">
+            <Image src="/images/duxiana.1920x0.jpg" alt="" fill className="object-cover opacity-50 transition duration-700 group-hover:scale-[1.03]" sizes="50vw" />
+            <div className="relative">
+              <p className="eyebrow !text-sand">Twee minuten</p>
+              <h3 className="mt-2 font-serif text-3xl">Stel uw bed samen</h3>
+              <p className="mt-2 max-w-md text-white/80">Vijf vragen, drie bedden die bij u passen, een eerlijke prijs. Nog voordat u naar Lochem rijdt.</p>
+              <span className="btn btn-light mt-5">Begin</span>
+            </div>
+          </Link>
+          <Link href="/assortiment" className="group relative flex min-h-[20rem] items-end overflow-hidden bg-linen p-8">
+            <Image src="/images/ovii-fotografie-vandekolk-okt24-7297.480x0.jpg" alt="" fill className="object-cover opacity-40 transition duration-700 group-hover:scale-[1.03]" sizes="50vw" />
+            <div className="relative">
+              <p className="eyebrow">Ook los</p>
+              <h3 className="mt-2 font-serif text-3xl">Matrassen, toppers, kussens, dekbedden</h3>
+              <p className="mt-2 max-w-md text-ink-soft">Een nieuw matras op uw bestaande bed, of gratis kussenadvies van twintig minuten.</p>
+              <span className="btn btn-outline mt-5">Bekijk het assortiment</span>
+            </div>
+          </Link>
+        </div>
+      </Section>
+
       {/* Sleep advice / appointment */}
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-12">

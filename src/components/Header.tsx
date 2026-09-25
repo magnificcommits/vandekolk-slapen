@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 
 const nav: { href: Route; label: string }[] = [
-  { href: "/collectie", label: "Collectie" },
+  { href: "/collectie", label: "Bedden" },
+  { href: "/assortiment", label: "Matrassen & meer" },
+  { href: "/configurator", label: "Stel samen" },
   { href: "/slaapadvies", label: "Slaapadvies" },
-  { href: "/waar-zoekt-u-naar", label: "Slaapproblemen" },
   { href: "/showroomcollectie", label: "Showroom" },
   { href: "/over-ons", label: "Verhaal" },
   { href: "/contact", label: "Contact" },
