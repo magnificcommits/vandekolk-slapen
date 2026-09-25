@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 export default async function Page({ searchParams }: PageProps<"/afspraak">) {
   const sp = await searchParams;
   const preset = typeof sp.merk === "string" ? sp.merk : undefined;
+  const fromConfigurator = sp.bron === "configurator";
 
   return (
     <>
@@ -45,7 +46,7 @@ export default async function Page({ searchParams }: PageProps<"/afspraak">) {
               </p>
             </aside>
             <div className="lg:col-span-7 lg:col-start-6">
-              <BookingForm preset={preset} />
+              <BookingForm preset={preset} note={fromConfigurator ? "Uw antwoorden uit de vragenlijst nemen we mee. De bedden staan klaar als u komt." : undefined} />
             </div>
           </div>
         </section>

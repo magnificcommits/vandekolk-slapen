@@ -31,12 +31,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <p className="eyebrow !text-white/50">Winkel</p>
             <ul className="mt-4 space-y-2 text-sm text-white/80">
-              <li><Link href="/configurator" className="hover:text-white">Stel uw bed samen</Link></li>
+              <li><Link href="/configurator" className="hover:text-white">Welk bed past bij u?</Link></li>
               <li><Link href="/assortiment" className="hover:text-white">Matrassen, toppers, kussens</Link></li>
               <li><Link href="/slaapadvies" className="hover:text-white">Slaapadvies</Link></li>
               <li><Link href="/afspraak" className="hover:text-white">Afspraak plannen</Link></li>
               <li><Link href="/waar-zoekt-u-naar" className="hover:text-white">Waar zoekt u naar?</Link></li>
               <li><Link href="/showroomcollectie" className="hover:text-white">Showroomcollectie</Link></li>
+              <li><Link href="/kennis" className="hover:text-white">Kennis</Link></li>
               <li><Link href="/over-ons" className="hover:text-white">Ons verhaal</Link></li>
               <li><Link href="/vergelijk/vispring-duxiana-hastens" className="hover:text-white">Vispring, Duxiana of Hästens?</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact en route</Link></li>

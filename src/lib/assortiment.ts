@@ -152,14 +152,14 @@ export const comparisons: Comparison[] = [
       { label: "Liggevoel", cells: ["Veerkrachtig, ademend, per kant instelbaar", "Diep en ondersteunend, aanpasbaar na aankoop", "Zacht en omhullend, veerkrachtig"] },
       { label: "Sterk bij", cells: ["Warm slapen, partner die beweegt, lang meegaan", "Rugklachten, twee heel verschillende slapers", "Zacht willen liggen, uitstraling"] },
       { label: "Aanpasbaar na aankoop", cells: ["Topper wisselen", "Ja, cassettes per zone", "Topper wisselen"] },
-      { label: "Compleet bed 180 x 200, vanaf", cells: ["Circa € 6.500", "Circa € 7.900", "Circa € 8.000 tot € 10.000 (dealerprijzen, indicatie)"] },
+      { label: "Compleet bed 180 x 200, vanaf", cells: ["Circa € 6.500, tot ver boven € 15.000", "Circa € 5.900, tot circa € 12.000", "Circa € 8.000 tot € 10.000, tot boven € 30.000 (indicatie)"] },
       { label: "Proefliggen in Oost-Nederland", cells: ["Van de Kolk, Lochem", "Van de Kolk, Lochem", "Dichtstbijzijnde Hästens-winkel: Amersfoort"] },
     ],
     verdict: "Wilt u koel en veerkrachtig liggen met een bed dat twintig jaar meegaat, kies Vispring. Heeft u rugklachten of slaapt u naast iemand met een heel ander gewicht, kies Duxiana. Hästens is een prachtig bed voor wie zacht en omhuld wil liggen; het ligt dicht bij Vispring in gevoel en prijs. Kom beide bij ons proberen, dan weet u binnen een uur welk gevoel bij u past.",
     faq: [
       { q: "Is Vispring beter dan Hästens?", a: "Niet beter, anders. Vispring ligt veerkrachtiger en koeler, Hästens zachter. Beide zijn handgemaakt van natuurlijke materialen en gaan decennia mee. De prijs ligt dicht bij elkaar." },
       { q: "Waar kan ik in Gelderland of Overijssel een Vispring of Duxiana proberen?", a: "Bij Van de Kolk Slapen aan de Markt in Lochem, op afspraak. Wij zijn de enige zaak in Oost-Nederland met beide merken naast elkaar." },
-      { q: "Wat kost een Duxiana bed?", a: "Een compleet DUX-bed van 180 x 200 begint bij ons rond € 7.900, inclusief topper en hoofdbord." },
+      { q: "Wat kost een Duxiana bed?", a: "Een compleet DUX-bed van 180 x 200 begint bij ons rond € 5.900, inclusief topper en hoofdbord. De DUX 8008 zit rond € 12.000." },
     ],
   },
   {

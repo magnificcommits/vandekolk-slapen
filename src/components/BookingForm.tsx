@@ -19,12 +19,12 @@ function toISO(d: Date) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-export default function BookingForm({ preset }: { preset?: string }) {
+export default function BookingForm({ preset, note }: { preset?: string; note?: string }) {
   const [type, setType] = useState<Type>("showroom");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [persons, setPersons] = useState(2);
-  const [interests, setInterests] = useState<string[]>(preset ? [preset] : []);
+  const [interests, setInterests] = useState<string[]>(preset ? preset.split(",").map((x) => x.trim()).filter(Boolean) : []);
   const [form, setForm] = useState({ name: "", email: "", phone: "", concerns: "", website: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [state, setState] = useState<"idle" | "busy" | "done" | "fail">("idle");
@@ -83,6 +83,7 @@ export default function BookingForm({ preset }: { preset?: string }) {
 
   return (
     <form onSubmit={submit} className="space-y-12" noValidate>
+      {note && <p className="bg-linen p-4 text-sm text-ink-soft">{note}</p>}
       {/* Stap 1: soort */}
       <fieldset>
         <legend className="eyebrow">01 · Soort afspraak</legend>

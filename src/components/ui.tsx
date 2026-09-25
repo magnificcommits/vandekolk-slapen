@@ -14,8 +14,8 @@ export function Section({
 }) {
   const bg = tone === "linen" ? "bg-linen" : tone === "night" ? "bg-night text-white" : "bg-paper";
   return (
-    <section id={id} className={`${bg} ${className}`}>
-      <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">{children}</div>
+    <section id={id} className={bg}>
+      <div className={`mx-auto max-w-7xl px-5 py-12 lg:px-8 lg:py-16 ${className}`}>{children}</div>
     </section>
   );
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { euro, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import { type Config, type Issue, feelLabels, issueLabels, proposals, sizes } from "@/lib/configurator";
 
 const empty: Config = { who: null, issues: [], feel: null, size: null, base: null, headboard: true, budget: null };
@@ -130,7 +130,7 @@ export default function Configurator() {
         )}
         {step === 5 && (
           <>
-            <h2 className="font-serif text-3xl">Deze drie bedden passen bij u.</h2>
+            <h2 className="font-serif text-3xl">Deze drie bedden passen bij u. Nu nog het juiste.</h2>
             <p className="mt-2 text-sm text-stone">{summary.join(" · ")}</p>
             <div className="mt-6 grid gap-5 md:grid-cols-3">
               {result.map((p, i) => (
@@ -140,22 +140,41 @@ export default function Configurator() {
                   <h3 className="mt-1 font-serif text-xl">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-soft">{p.why}</p>
                   <ul className="mt-4 space-y-1 text-sm text-stone">{p.includes.map((x) => <li key={x}>· {x}</li>)}</ul>
-                  <p className="mt-4 font-serif text-2xl">{euro(p.from)} <span className="text-base text-stone">tot {euro(p.to)}</span></p>
-                  <Link href={`/collectie/${p.slug}`} className="mt-3 inline-block text-xs tracking-[0.12em] uppercase underline underline-offset-4">Meer over {p.brand}</Link>
+                  <Link href={`/collectie/${p.slug}`} className="mt-4 inline-block text-xs tracking-[0.12em] uppercase underline underline-offset-4">Meer over {p.brand}</Link>
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-xs text-stone">Prijzen zijn een indicatie, inclusief btw. De precieze prijs hangt af van stof, stevigheid en uitvoering.</p>
+            <div className="mt-8 grid gap-6 bg-linen p-6 md:grid-cols-3 md:p-8">
+              <div>
+                <p className="font-serif text-lg">Welk van de drie? Dat voelt u.</p>
+                <p className="mt-1 text-sm text-stone">Op papier lijken ze op elkaar. Liggend niet. Daarom eindigt dit niet met een prijs, maar met een uur in de showroom.</p>
+              </div>
+              <div>
+                <p className="font-serif text-lg">Elk bed wordt voor u gemaakt.</p>
+                <p className="mt-1 text-sm text-stone">Stevigheid per kant, stof, hoofdbord, maat. Robert meet dat met de Sleep Scan en stelt het samen. De prijs hoort bij die samenstelling.</p>
+              </div>
+              <div>
+                <p className="font-serif text-lg">Uw antwoorden liggen klaar.</p>
+                <p className="mt-1 text-sm text-stone">Wij nemen ze mee in de afspraak. U hoeft niets opnieuw uit te leggen.</p>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link href={`/afspraak?merk=${encodeURIComponent(result.map((p) => p.brand).join(", "))}&bron=configurator`} className="btn btn-primary">Reserveer mijn uur in de showroom</Link>
+              <a href={site.phoneHref} className="btn btn-outline">Bel {site.phone}</a>
+            </div>
+            <p className="mt-3 text-sm text-stone">Ook 's avonds en op maandag. Advies aan huis kan ook.</p>
 
             {state === "done" ? (
               <div className="mt-8 bg-linen p-8">
-                <p className="eyebrow">Verstuurd</p>
-                <h3 className="mt-2 font-serif text-2xl">Uw voorstel staat in uw mailbox.</h3>
-                <p className="mt-3 text-ink-soft">Martin of Robert belt u binnen één werkdag om het door te nemen. Wilt u sneller? Plan direct een afspraak.</p>
-                <Link href="/afspraak" className="btn btn-primary mt-5">Plan een afspraak</Link>
+                <p className="eyebrow">Ontvangen</p>
+                <h3 className="mt-2 font-serif text-2xl">Robert belt u binnen één werkdag.</h3>
+                <p className="mt-3 text-ink-soft">Hij neemt uw antwoorden door en plant met u een moment in de showroom. Liever zelf een tijd kiezen? Dat kan direct.</p>
+                <Link href="/afspraak?bron=configurator" className="btn btn-primary mt-5">Kies zelf een moment</Link>
               </div>
             ) : (
-              <form onSubmit={send} className="mt-8 grid gap-4 border-t border-line pt-8 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
+              <form onSubmit={send} className="mt-10 grid gap-4 border-t border-line pt-8 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
+                <p className="text-sm text-ink-soft md:col-span-4">Liever dat wij u bellen om een moment te plannen? Laat uw gegevens achter.</p>
                 <div>
                   <label className="label" htmlFor="cname">Naam</label>
                   <input id="cname" required className="field" value={lead.name} onChange={(e) => setLead({ ...lead, name: e.target.value })} />
@@ -168,8 +187,8 @@ export default function Configurator() {
                   <label className="label" htmlFor="cphone">Telefoon</label>
                   <input id="cphone" required className="field" value={lead.phone} onChange={(e) => setLead({ ...lead, phone: e.target.value })} />
                 </div>
-                <button type="submit" disabled={state === "busy"} className="btn btn-primary disabled:opacity-60">{state === "busy" ? "Versturen…" : "Stuur mij dit voorstel"}</button>
-                <p className="text-xs text-stone md:col-span-4">U ontvangt het voorstel per e-mail. Martin belt u binnen één werkdag. Liever direct liggen? <Link href="/afspraak" className="underline underline-offset-4">Plan een afspraak</Link> of bel {site.phone}.</p>
+                <button type="submit" disabled={state === "busy"} className="btn btn-primary disabled:opacity-60">{state === "busy" ? "Versturen…" : "Bel mij voor een afspraak"}</button>
+                <p className="text-xs text-stone md:col-span-4">Wij delen uw gegevens met niemand en sturen geen nieuwsbrieven.</p>
                 {state === "fail" && <p className="text-sm text-red-700 md:col-span-4">Versturen mislukt. Bel ons gerust op {site.phone}.</p>}
               </form>
             )}

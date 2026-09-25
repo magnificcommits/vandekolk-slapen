@@ -29,8 +29,8 @@ type Proposal = {
 };
 
 const catalog: Proposal[] = [
-  { slug: "vispring", brand: "Vispring", title: "Vispring Regal of Elite", why: "Handgemaakt, natuurlijke vulling, twintig jaar meegaan. Twee losse matrassen met eigen stevigheid per kant.", includes: ["2 matrassen op maat van uw gewicht", "Divan in stof naar keuze", "Topper Heaven", "2 kussens"], from: 6500, to: 11000 },
-  { slug: "duxiana", brand: "Duxiana", title: "DUX 6006 of 8008", why: "Meerlaags veersysteem. Per zone aan te passen, ook na jaren. De beste keuze bij rugklachten en bij twee heel verschillende slapers.", includes: ["Pascal-cassettes per zone", "Topper Xleep", "Hoofdbord", "2 kussens"], from: 7900, to: 13500 },
+  { slug: "vispring", brand: "Vispring", title: "Vispring Regal of Elite", why: "Handgemaakt, natuurlijke vulling, twintig jaar meegaan. Twee losse matrassen met eigen stevigheid per kant.", includes: ["2 matrassen op maat van uw gewicht", "Divan in stof naar keuze", "Topper Heaven", "2 kussens"], from: 6500, to: 16000 },
+  { slug: "duxiana", brand: "Duxiana", title: "DUX 6006 of 8008", why: "Meerlaags veersysteem. Per zone aan te passen, ook na jaren. De beste keuze bij rugklachten en bij twee heel verschillende slapers.", includes: ["Pascal-cassettes per zone", "Topper Xleep", "Hoofdbord", "2 kussens"], from: 5900, to: 12500 },
   { slug: "jensen", brand: "Jensen", title: "Jensen Prestige of Supreme Continental", why: "Zacht liggen zonder steun te verliezen. Diepe schouderzone. Strak Scandinavisch design, 25 jaar garantie.", includes: ["Continental met dubbele pocketvering", "Topper Softline", "Hoofdbord Fenix", "2 kussens"], from: 4500, to: 9500 },
   { slug: "avek", brand: "Avek", title: "Avek Ninety of Noflik", why: "Nederlands, beste uit de test, eerlijk geprijsd. Drie lagen comfort in bijna elke maat en stof.", includes: ["Boxspring met pocketvering", "Matras Ouro", "Topper", "2 kussens"], from: 2995, to: 5500 },
   { slug: "pullman", brand: "Pullman", title: "Pullman Original", why: "De klassieke Nederlandse boxspring. Meer dan 300 stoffen, snelle levering.", includes: ["Original boxen", "Matras Elan", "Topper", "2 kussens"], from: 3200, to: 6000 },

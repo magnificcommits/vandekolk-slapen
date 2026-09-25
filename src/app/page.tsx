@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { CtaBand, Eyebrow, GoogleBadge, Heading, Section, Usps } from "@/components/ui";
 import { brands, concerns, euro, site } from "@/lib/site";
+import { articles } from "@/lib/kennis";
 
 export default function Home() {
   const signature = brands.filter((b) => b.tier === "signature");
@@ -62,7 +63,7 @@ export default function Home() {
                 Bij ons staat niemand u op te jagen. U ligt, wij kijken mee. Samen kiezen we het bed dat bij uw lichaam past. Niet het bed dat toevallig in de aanbieding is.
               </p>
               <p>
-                Martin van de Kolk runt de zaak als derde generatie. Hij komt uw bed zelf brengen, zet het goed in uw slaapkamer en komt terug als er iets aangepast moet worden. Zo deden zijn vader en opa het ook.
+                Martin van de Kolk runt de zaak als derde generatie. Hij komt uw bed zelf brengen, zet het goed in uw slaapkamer en komt terug als er iets aangepast moet worden. Robert, bedrijfsleider met jarenlange ervaring in bedden, doet de Sleep Scan en het advies. “Wij zijn adviseurs, geen verkopers.”
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -115,8 +116,8 @@ export default function Home() {
             <Image src="/images/duxiana.1920x0.jpg" alt="" fill className="object-cover opacity-50 transition duration-700 group-hover:scale-[1.03]" sizes="50vw" />
             <div className="relative">
               <p className="eyebrow !text-sand">Twee minuten</p>
-              <h3 className="mt-2 font-serif text-3xl">Stel uw bed samen</h3>
-              <p className="mt-2 max-w-md text-white/80">Vijf vragen, drie bedden die bij u passen, een eerlijke prijs. Nog voordat u naar Lochem rijdt.</p>
+              <h3 className="mt-2 font-serif text-3xl">Welk bed past bij u?</h3>
+              <p className="mt-2 max-w-md text-white/80">Vijf vragen over hoe u slaapt. Dan staan de juiste bedden voor u klaar als u binnenkomt.</p>
               <span className="btn btn-light mt-5">Begin</span>
             </div>
           </Link>
@@ -182,6 +183,26 @@ export default function Home() {
               <h3 className="font-serif text-xl">{c.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-stone">{c.short}</p>
               <p className="mt-5 text-xs tracking-[0.14em] uppercase text-sand-deep group-hover:underline">Lees verder</p>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      {/* Kennis */}
+      <Section className="!py-10">
+        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Eyebrow>Kennis</Eyebrow>
+            <Heading className="mt-3 !text-3xl">Wat wij in de winkel elke dag uitleggen.</Heading>
+          </div>
+          <Link href="/kennis" className="text-sm tracking-[0.12em] uppercase underline underline-offset-4">Alle artikelen</Link>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {articles.slice(0, 3).map((a) => (
+            <Link key={a.slug} href={`/kennis/${a.slug}`} className="group border-t border-line pt-5">
+              <p className="text-xs tracking-[0.14em] uppercase text-stone">{a.readMinutes} min lezen</p>
+              <h3 className="mt-2 font-serif text-xl group-hover:underline underline-offset-4">{a.title}</h3>
+              <p className="mt-2 text-sm text-ink-soft">{a.excerpt}</p>
             </Link>
           ))}
         </div>

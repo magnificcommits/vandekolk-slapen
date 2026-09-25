@@ -8,9 +8,10 @@ import { site } from "@/lib/site";
 const nav: { href: Route; label: string }[] = [
   { href: "/collectie", label: "Bedden" },
   { href: "/assortiment", label: "Matrassen & meer" },
-  { href: "/configurator", label: "Stel samen" },
+  { href: "/configurator", label: "Welk bed past bij u?" },
   { href: "/slaapadvies", label: "Slaapadvies" },
   { href: "/showroomcollectie", label: "Showroom" },
+  { href: "/kennis", label: "Kennis" },
   { href: "/over-ons", label: "Verhaal" },
   { href: "/contact", label: "Contact" },
 ];

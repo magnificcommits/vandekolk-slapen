@@ -63,7 +63,7 @@ export const brands: Brand[] = [
     short: "Zweeds bed dat u per zone kunt aanpassen. Ook na jaren nog.",
     description:
       "Een Duxiana heeft meerdere lagen veren in losse blokken. Die blokken kunt u per zone wisselen. Verandert uw lichaam, dan past u het bed aan. Een Duxiana koopt u één keer.",
-    from: 7900,
+    from: 5900,
     highlights: ["Uitwisselbare Pascal-cassettes", "Meerlaags veersysteem", "Zweeds design", "Ook elektrisch verstelbaar"],
     image: "/images/duxiana.1920x0.jpg",
     tier: "signature",
