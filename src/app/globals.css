@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #1c2233;
+  --color-ink-soft: #3a4257;
+  --color-stone: #6b6f77;
+  --color-linen: #f6f2ec;
+  --color-linen-deep: #ece5da;
+  --color-sand: #b8a58a;
+  --color-sand-deep: #9a8566;
+  --color-paper: #ffffff;
+  --color-night: #141a2a;
+  --color-line: #e2dcd2;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-stone: var(--color-stone);
+  --color-linen: var(--color-linen);
+  --color-linen-deep: var(--color-linen-deep);
+  --color-sand: var(--color-sand);
+  --color-sand-deep: var(--color-sand-deep);
+  --color-paper: var(--color-paper);
+  --color-night: var(--color-night);
+  --color-line: var(--color-line);
+  --font-serif: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sand-deep);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all 200ms ease;
+  border: 1px solid transparent;
+}
+.btn-primary { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+.btn-primary:hover { background: var(--color-night); }
+.btn-outline { border-color: var(--color-ink); color: var(--color-ink); background: transparent; }
+.btn-outline:hover { background: var(--color-ink); color: #fff; }
+.btn-light { border-color: rgba(255,255,255,0.6); color: #fff; background: transparent; }
+.btn-light:hover { background: #fff; color: var(--color-ink); }
+.btn-sand { background: var(--color-sand); color: #fff; border-color: var(--color-sand); }
+.btn-sand:hover { background: var(--color-sand-deep); }
+
+.field {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 150ms;
+}
+.field:focus { border-color: var(--color-ink); }
+.label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  margin-bottom: 0.4rem;
+}
+
+.prose-lg p { margin-bottom: 1.1rem; line-height: 1.75; }
+
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 700ms ease both; }
+.fade-up-2 { animation: fadeUp 700ms 150ms ease both; }
+.fade-up-3 { animation: fadeUp 700ms 300ms ease both; }
