@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { brands, euro } from "./site";
+import { aanhef } from "./appointments";
 
 export type Lead = {
   id: string;
@@ -33,7 +34,8 @@ export async function saveLead(l: Lead) {
     list.push(l);
     await fs.writeFile(file, JSON.stringify(list, null, 2));
   } catch {
-    console.log("[lead]", JSON.stringify(l));
+    // Geen persoonsgegevens loggen; de lead komt binnen via de notificatiemail.
+    console.warn("[lead] geen opslag beschikbaar, id", l.id);
   }
 }
 
@@ -46,9 +48,15 @@ export async function notifyLead(l: Lead) {
     const b = brands.find((x) => x.slug === p.slug);
     return `${b?.name ?? p.slug}: ${euro(p.from)} tot ${euro(p.to)}`;
   });
+  // In de mail naar het opgegeven adres alleen bekende merken met geldige bedragen.
+  const klantLines = (l.proposals as { slug?: unknown; from?: unknown; to?: unknown }[]).flatMap((p) => {
+    const b = brands.find((x) => x.slug === p?.slug);
+    const ok = (n: unknown): n is number => typeof n === "number" && Number.isFinite(n) && n >= 0 && n < 100000;
+    return b && ok(p.from) && ok(p.to) ? [`${b.name}: ${euro(p.from)} tot ${euro(p.to)}`] : [];
+  });
   const send = (payload: object) => fetch("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" }, body: JSON.stringify(payload) });
   await Promise.allSettled([
     send({ from, to: [to], reply_to: l.email, subject: `Nieuwe configuratie: ${l.name}`, text: `Naam: ${l.name}\nTelefoon: ${l.phone}\nE-mail: ${l.email}\n\nKeuzes: ${JSON.stringify(l.config)}\n\nVoorstel:\n${lines.join("\n")}\n\nBel binnen één werkdag.` }),
-    send({ from, to: [l.email], subject: "Uw voorstel van Van de Kolk Slapen", text: `Beste ${l.name},\n\nDank voor het samenstellen van uw bed. Dit zijn de drie bedden die bij uw antwoorden passen:\n\n${lines.join("\n")}\n\nDe prijzen zijn een indicatie voor een compleet bed. Martin of Robert belt u binnen één werkdag om het door te nemen. Wilt u sneller? Plan een afspraak op vandekolkslapen.nl/afspraak of bel 0573 251 761.\n\nMet vriendelijke groet,\nVan de Kolk Slapen\nMarkt 20, Lochem` }),
+    send({ from, to: [l.email], subject: "Uw voorstel van Van de Kolk Slapen", text: `${aanhef(l.name)}\n\nDank voor het samenstellen van uw bed. Dit zijn de drie bedden die bij uw antwoorden passen:\n\n${klantLines.join("\n")}\n\nDe prijzen zijn een indicatie voor een compleet bed. Martin of Robert belt u binnen één werkdag om het door te nemen. Wilt u sneller? Plan een afspraak op vandekolkslapen.nl/afspraak of bel 0573 251 761.\n\nMet vriendelijke groet,\nVan de Kolk Slapen\nMarkt 20, Lochem` }),
   ]);
 }

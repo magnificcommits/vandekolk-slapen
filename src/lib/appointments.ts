@@ -66,9 +66,20 @@ export async function saveAppointment(a: Appointment) {
     list.push(a);
     await fs.writeFile(file, JSON.stringify(list, null, 2));
   } catch {
-    // Read-only filesystem (serverless preview): loggen is voldoende voor de preview.
-    console.log("[afspraak]", JSON.stringify(a));
+    // Read-only filesystem (serverless preview). Geen persoonsgegevens loggen:
+    // de afspraak komt dan alleen binnen via de notificatiemail (RESEND_API_KEY).
+    console.warn("[afspraak] geen opslag beschikbaar, id", a.id);
   }
+}
+
+/**
+ * Voornaam voor de aanhef van mail naar een door de bezoeker opgegeven adres.
+ * Alleen als hij eruitziet als een naam (max 40 tekens, letters, spaties,
+ * koppeltekens, apostrof), anders een aanhef zonder naam.
+ */
+export function aanhef(naam: string) {
+  const w = naam.trim().split(/\s+/)[0] ?? "";
+  return /^[\p{L}][\p{L}' -]{0,39}$/u.test(w) ? `Beste ${w},` : "Beste klant,";
 }
 
 /** Notificatie naar de winkel en bevestiging naar de klant via Resend (optioneel). */
@@ -100,7 +111,7 @@ export async function notify(a: Appointment) {
       from,
       to: [a.email],
       subject: `Uw afspraak bij Van de Kolk Slapen, ${when}`,
-      text: `Beste ${a.name},\n\nDank voor uw aanvraag. Wij hebben de volgende afspraak voor u genoteerd:\n\n${when}\n${typeLabel}\n\nU krijgt binnen één werkdag een persoonlijke bevestiging van Martin of Robert. Neem gerust uw partner mee; een bed kies je samen.\n\nParkeren kan direct achter de winkel: stel uw navigatie in op Noorderwal 30, Lochem.\n\nTot dan,\nVan de Kolk Slapen\nMarkt 20, 7241 AA Lochem\n0573 251 761`,
+      text: `${aanhef(a.name)}\n\nDank voor uw aanvraag. Wij hebben de volgende afspraak voor u genoteerd:\n\n${when}\n${typeLabel}\n\nU krijgt binnen één werkdag een persoonlijke bevestiging van Martin of Robert. Neem gerust uw partner mee; een bed kies je samen.\n\nParkeren kan direct achter de winkel: stel uw navigatie in op Noorderwal 30, Lochem.\n\nTot dan,\nVan de Kolk Slapen\nMarkt 20, 7241 AA Lochem\n0573 251 761`,
       attachments: [{ filename: "afspraak.ics", content: Buffer.from(ics(a)).toString("base64") }],
     }),
   ]);
